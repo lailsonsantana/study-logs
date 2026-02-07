@@ -30,4 +30,9 @@ public class StudyLog {
     @Column(name = "tag")
     @CollectionTable(name="db_tags")
     private List<String> tags;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

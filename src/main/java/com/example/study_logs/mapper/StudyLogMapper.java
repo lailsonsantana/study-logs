@@ -4,6 +4,7 @@ import com.example.study_logs.dto.request.StudyLogRequest;
 import com.example.study_logs.dto.response.StudyLogResponse;
 import com.example.study_logs.entity.StudyLog;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public interface StudyLogMapper {
 
     StudyLogResponse toStudyLogResponse(StudyLog studyLog);
 
+    @Mapping(source = "createdAt", target = "createdAt", dateFormat = "dd/MM/yyyy")
     List<StudyLogResponse> toStudyLogResponses(List<StudyLog> studyLogs);
 
 
