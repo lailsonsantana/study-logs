@@ -7,11 +7,14 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
+
 import java.util.List;
+
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface StudyLogMapper {
 
+    @Mapping(target = "tags", source = "tags")
     StudyLog toStudyLog(StudyLogRequest studyLogsRequest);
 
     StudyLogResponse toStudyLogResponse(StudyLog studyLog);
@@ -19,5 +22,6 @@ public interface StudyLogMapper {
     @Mapping(source = "createdAt", target = "createdAt", dateFormat = "dd/MM/yyyy")
     List<StudyLogResponse> toStudyLogResponses(List<StudyLog> studyLogs);
 
-
 }
+
+

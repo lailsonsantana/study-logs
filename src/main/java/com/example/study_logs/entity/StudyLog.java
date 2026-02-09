@@ -2,11 +2,13 @@ package com.example.study_logs.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 
 @Table(name = "db_study_logs")
@@ -14,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
+
 public class StudyLog {
 
     @Id

@@ -1,7 +1,9 @@
 package com.example.study_logs.controller;
 
 import com.example.study_logs.dto.request.StudyLogRequest;
+import com.example.study_logs.dto.response.CounterTagsResponse;
 import com.example.study_logs.dto.response.StudyLogResponse;
+import com.example.study_logs.dto.response.StudyLogsAndCounterTagsResponse;
 import com.example.study_logs.service.StudyLogService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,5 +29,8 @@ public class StudyLogController {
         return ResponseEntity.ok(studyLogService.getAllStudyLogs());
     }
 
-
+    @GetMapping("/studylogs-counter")
+    public ResponseEntity<StudyLogsAndCounterTagsResponse> countTags(){
+        return ResponseEntity.ok(studyLogService.getAllStudyLogsWithCountTags());
+    }
 }
