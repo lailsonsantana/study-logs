@@ -28,11 +28,12 @@ public class StudyLogService {
     }
 
     public List<StudyLogResponse> getAllStudyLogs(){
-        return studyLogMapper.toStudyLogResponses(studyLogRepository.findAll());
+        return studyLogMapper.toStudyLogResponses(studyLogRepository.findAllByOrderByCreatedAtDesc());
     }
 
     public StudyLogsAndCounterTagsResponse getAllStudyLogsWithCountTags(){
-        List<StudyLogResponse> studyLogResponses = studyLogMapper.toStudyLogResponses(studyLogRepository.findAll());
+        List<StudyLogResponse> studyLogResponses = studyLogMapper.
+                toStudyLogResponses(studyLogRepository.findAllByOrderByCreatedAtDesc());
         List<CounterTagsResponse> counterTagsResponses = studyLogRepository.countTags();
         return new StudyLogsAndCounterTagsResponse(studyLogResponses, counterTagsResponses);
     }

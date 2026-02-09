@@ -2,8 +2,8 @@ spring:
   application:
     name: study_logs
   datasource:
-    url: jdbc:postgresql://localhost:5432/studylog
-    username: postgres
+    url: jdbc:postgresql://dpg-d6522qp4tr6s739nsp1g-a.oregon-postgres.render.com:5432/studylog_ey3n
+    username: lailson
     password: ${DB_PASSWORD}
   jpa:
     database: POSTGRESQL

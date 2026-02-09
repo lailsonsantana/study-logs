@@ -11,6 +11,8 @@ import java.util.List;
 @Repository
 public interface StudyLogRepository extends JpaRepository<StudyLog, Long> {
 
+    List<StudyLog> findAllByOrderByCreatedAtDesc();
+
     @Query(value = "SELECT t.tag, COUNT(*) FROM db_study_logs sl, db_tags t " +
             "WHERE t.study_log_id = sl.id GROUP BY tag ORDER BY count DESC", nativeQuery = true)
     List<CounterTagsResponse> countTags();

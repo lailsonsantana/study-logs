@@ -17,6 +17,7 @@ public interface StudyLogMapper {
     @Mapping(target = "tags", source = "tags")
     StudyLog toStudyLog(StudyLogRequest studyLogsRequest);
 
+    @Mapping(source = "createdAt", target = "createdAt", dateFormat = "dd/MM/yyyy")
     StudyLogResponse toStudyLogResponse(StudyLog studyLog);
 
     @Mapping(source = "createdAt", target = "createdAt", dateFormat = "dd/MM/yyyy")
